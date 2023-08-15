@@ -1,0 +1,52 @@
+﻿@model EntityLayer.Concrete.Message
+
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<h1>Mesaj Detayları</h1>
+<br />
+
+<div class="form-row">
+    <div class="col-md-6">
+        <dt>
+            <label>Konu</label>
+        </dt>
+        <dd>
+            @Html.DisplayFor(x => x.Subject)
+            @*@Html.TextBoxFor(x=> x.Subject, new{@class = "form-control", disabled = "disabled"})*@
+        </dd>
+    </div>
+    <div class="col-md-6">
+        <dt>
+            <label>Tarih</label>
+        </dt>
+        <dd>
+            @Html.DisplayFor(x => x.MessageDate)
+            @*@Html.TextBoxFor(x=> x.MessageDate, new{@class = "form-control", disabled = "disabled"})*@
+        </dd>
+    </div>
+</div>
+<br />
+<div class="form-row">
+    <div class="col-md-12">
+        <dt>
+            <label>Mesajınız</label>
+        </dt>
+        <dd>
+            @Html.TextAreaFor(x => x.MessageDetails, 15,3 , new{@class="form-control" , @readonly="readonly"})
+        </dd>
+    </div>
+</div>
+<br />
+<button class="btn btn-dark" onclick="backbtn()">Geri</button>
+
+
+<script type="text/javascript">
+
+    function backbtn() {
+        history.back()
+    }
+
+</script>

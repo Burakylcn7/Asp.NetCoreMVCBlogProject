@@ -1,0 +1,69 @@
+﻿<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+
+        @await Component.InvokeAsync("WriterNavbarProfile")
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Dashboard/Index/">
+                <span class="menu-title">Dashboard</span>
+                <i class="mdi mdi-home menu-icon"></i>
+            </a>
+        </li>
+        @*<li class="nav-item">
+            <a class="nav-link" href="/Writer/Index/">
+                <span class="menu-title">Profilim</span>
+                <i class="mdi mdi-contacts menu-icon"></i>
+            </a>
+        </li>*@
+        <li class="nav-item">
+            <a class="nav-link" href="/Blog/BlogListByWriter/">
+                <span class="menu-title">Bloglarım</span>
+                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+            </a>
+        </li>
+        @*<li class="nav-item">
+            <a class="nav-link" href="/Blog/BlogAdd/">
+                <span class="menu-title">Yeni Blog</span>
+                <i class="mdi mdi-chart-bar menu-icon"></i>
+            </a>
+        </li>*@
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#message-pages" aria-expanded="false" aria-controls="message-pages">
+                <span class="menu-title">Mesajlar</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-message menu-icon"></i>
+            </a>
+            <div class="collapse" id="message-pages">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="/Message/Inbox/"> Gelen Mesajlar </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/Message/Sendbox/"> Gönderilen Mesajlar </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/Message/SendMessage/"> Mesaj Oluştur </a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Notification/AllNotification/">
+                <span class="menu-title">Bildirimler</span>
+                <i class="mdi mdi-bell-ring menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Blog/Index/">
+                <span class="menu-title">Siteye Git</span>
+                <i class="mdi mdi-car menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Writer/WriterEditProfile/">
+                <span class="menu-title">Ayarlar</span>
+                <i class="mdi mdi-settings menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Login/LogOut/">
+                <span class="menu-title">Çıkış Yap</span>
+                <i class="mdi mdi-logout-variant menu-icon"></i>
+            </a>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Blog>
+
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Son 10 Blog</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> BAŞLIK </th>
+                                <th> KATEGORİ </th>
+                                <th> TARİH </th>
+                                <th> DURUM </th>
+                                <th> DETAYLAR </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.TakeLast(10))
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="@item.BlogThumbnailImage" class="mr-2" alt="image"> @item.BlogTitle
+                                    </td>
+                                    <td>@item.Category.CategoryName</td>
+                                    <td>@(((DateTime)item.BlogCreateDate).ToString("dd MMM, yyyy"))</td>
+                                    <td>
+                                        @if (item.BlogStatus)
+                                        {
+                                            <label class="badge badge-success">AKTİF</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="badge badge-secondary">PASİF</label>
+                                        }
+                                    </td>
+                                    <td><a href="/Blog/BlogReadAll/@item.BlogID" class="btn btn-dark">DETAYLAR</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

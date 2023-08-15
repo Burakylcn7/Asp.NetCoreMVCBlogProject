@@ -1,0 +1,19 @@
+﻿@using CoreProje.Models
+@model RoleModel
+@{
+    ViewData["Title"] = "AddRole";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Role Ekleme</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label>Rol Başlığı</label>
+        <input type="text" name="name" class="form-control" required="" />
+    </div>
+    <button class="btn btn-outline-success">Ekle</button>
+    <a href="/Admin/AdminRol/Index/" class="btn btn-outline-dark" style="margin-left:10px;">Geri</a>
+</form>
+
+

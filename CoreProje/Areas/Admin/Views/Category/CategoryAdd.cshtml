@@ -1,0 +1,35 @@
+﻿@model EntityLayer.Concrete.Category
+
+@{
+    ViewData["Title"] = "CategoryAdd";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Yeni Kategori Ekle</h1>
+
+@using (Html.BeginForm("CategoryAdd", "Category", FormMethod.Post))
+{
+    @Html.Label("Kategori Adı")
+    @Html.TextBoxFor(x => x.CategoryName  , new{@class="form-control" , @placeholder = "" })
+    @Html.ValidationMessageFor(x => x.CategoryName, "" , new{@class="text-danger"})
+    <br />
+    @Html.Label("Kategori Açıklaması")
+    @Html.TextAreaFor(x => x.CategoryDescription , 5,3 , new{@class="form-control" , @placeholder = ""})
+    @Html.ValidationMessageFor(x => x.CategoryDescription , "" , new{@class="text-danger"})
+    <br />
+
+    <div class="btn-group float-right">
+        <button class="btn btn-primary">Ekle</button>
+        <a href="/Admin/Category/Index/" class="btn btn-dark" style="Margin-left:10px;">Geri</a>
+    </div>
+}
+
+@*<button class="btn btn-dark" onclick="backbtn()">Geri</button>
+
+<script type="text/javascript">
+
+    function backbtn() {
+        history.back()
+    }
+
+</script>*@

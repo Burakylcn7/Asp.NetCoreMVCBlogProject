@@ -1,0 +1,29 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Message>
+@{
+    ViewData["Title"] = "InBox";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<h1>Gelen Mesajlar</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>Gönderen</th>
+        <th>Konu</th>
+        <th>Tarih</th>
+        <th>Detay</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="@item.SenderWriter.WriterImage" class="mr-2" alt="image"> @item.SenderWriter.WriterName
+            </td>
+            <td>@item.Subject</td>
+            <td>@(((DateTime)item.MessageDate).ToString("dd MMM, yyyy"))</td>
+            <td><a href="/Message/MessageDetails/@item.MessageID" class="btn btn-warning">Mesajı Aç</a></td>
+            <td><a href="/Message/MessageDelete/@item.MessageID" onclick="return confirm('Silmek istediğine emin misin?');" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+</table>
+<a href="/Message/SendMessage/" class="btn btn-primary">Yeni Mesaj Oluştur</a>

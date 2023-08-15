@@ -1,0 +1,107 @@
+﻿@model UserRegisterModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<section class="main-content-w3layouts-agileits">
+    <div class="container">
+        <h3 class="tittle">Yazar Kayıt Sayfası</h3>
+        <div class="inner-sec">
+            <div class="login p-5 bg-light mx-auto mw-100">
+                <form class="form-group" role="form" asp-action="Index" enctype="multipart/form-data">
+                @*@using (Html.BeginForm("Index", "Register", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {*@
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom01">Ad Soyad</label>
+                            @*@Html.TextBoxFor(x => x.NameSurname , new{@class="form-control" , @placeholder = "" })
+                            @Html.ValidationMessageFor(x => x.NameSurname , "" , new{@class="text-danger"})*@
+                            <input type="text" class="form-control" id="validationDefault01" asp-for="@Model.NameSurname" placeholder="" >
+                            <span asp-validation-for="@Model.NameSurname" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02">Email Adresi</label>
+                            @*@Html.TextBoxFor(x => x.Mail , new{@class="form-control" , @placeholder = ""})
+                            @Html.ValidationMessageFor(x => x.Mail , "" , new{@class="text-danger"})*@
+                            <input type="email" class="form-control" id="validationDefault02" asp-for="@Model.Mail" placeholder="" >
+                            <span asp-validation-for="@Model.Mail" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputPassword1 mb-2">Şifre</label>
+                            @*@Html.TextBoxFor(x => x.Password , new{@class="form-control" , @placeholder = ""})
+                            @Html.ValidationMessageFor(x => x.Password , "" , new{@class="text-danger"})*@
+                            <input type="text" class="form-control" id="password1" asp-for="@Model.Password" placeholder="" >
+                            <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputPassword2 mb-2">Şifre Tekrarı</label>
+                            @*@Html.TextBoxFor(x => x.ConfirmPassword , new{@class="form-control" , @placeholder = ""})
+                            @Html.ValidationMessageFor(x => x.ConfirmPassword , "" , new{@class="text-danger"})*@
+                            <input type="text" class="form-control" id="password2" asp-for="@Model.ConfirmPassword" placeholder="" >
+                            <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom03">Kullanıcı Adı</label>
+                            @*@Html.TextBoxFor(x => x.UserName , new{@class="form-control" , @placeholder = "" })
+                            @Html.ValidationMessageFor(x => x.UserName , "" , new{@class="text-danger"})*@
+                            <input type="text" class="form-control" id="validationDefault03" asp-for="@Model.UserName" placeholder="" >
+                            <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputFile1">Profil Fotoğrafı</label>
+                            @*@Html.TextBoxFor(x => x.WriterImage , new{@class="form-control" , @placeholder = ""})
+                        @Html.ValidationMessageFor(x => x.WriterImage , "" , new{@class="text-danger"})*@
+                            <input type="file" class="form-control-file" id="exampleInputFile1" asp-for="@Model.ImageFile">
+                        </div>
+                    </div>
+                    <div class="text-danger" asp-validation-summary="ModelOnly">
+
+                    </div>
+                    @*<div class="form-group">
+                <label for="exampleTextarea1">Yazar Hakkında</label>
+                @Html.TextAreaFor(x => x.WriterAbout, 10,3 , new{@class="form-control" , @placeholder = "" })
+                @Html.ValidationMessageFor(x => x.WriterAbout, "" , new{@class="text-danger"})
+                </div>*@
+
+                    <p>
+                        @*<div class="form-group">
+                            <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> <a href="#" id="mbox1">Tüm şartları okudum, kabul ediyorum.</a> </label></div>
+                        </div>*@
+                        <button type="submit" class="btn btn-primary submit mb-4">Kayıt Ol</button>
+                    </p>
+                @*}*@
+                </form>
+            </div>
+        </div>
+    </div>
+    @*<script>
+    $('#btn1').click(function () {
+    swal("Tebrikler", "Kayıt Oldunuz", "success");
+    })
+    </script>*@
+  @*  <script>
+        $('#mbox1').click(function () {
+            swal("Gizlilik Sözleşmesi", "Gizlilik Sözleşmesi, taraflar arasında yürütülen proje ya da paylaşılan iş konusu ile ilgili olarak, gizlilik içerdiği açıkça belirtilen bilgi ve belgenin, ilgili kişinin onayı alınmadıkça herhangi bir üçüncü kişiye açıklanmamasını temin eden sözleşmedir. Bu sözleşme ile gizliliğin sınırları ve koşulları belirlenebilir. Bu sözleşme ile taraflar, proje ve fikirlerin çalınmasından ve aynı zamanda henüz tamamlanmamış ve üzerinde çalışılan bir projenin üçüncü kişilerce öğrenilmesi ve üzerinde fikir beyan edilmesinden korunmuş olur.");
+        })
+    </script>
+    <script src="js/plugins/iCheck/icheck.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+    </script>*@
+</section>
+

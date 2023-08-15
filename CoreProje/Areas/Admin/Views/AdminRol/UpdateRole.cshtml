@@ -1,0 +1,21 @@
+﻿@using CoreProje.Models
+@model RoleUpdateModel
+
+@{
+    ViewData["Title"] = "UpdateRole";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Rol Güncelleme</h1>
+<form method="post">
+    <div class="form form-group">
+        <label >Role ID</label>
+        <input type="text" class="form-control" name="Id" value="@Model.Id" disabled ="disabled" />
+    </div>
+    <div class="form form-group">
+        <label >Role Başlığı</label>
+        <input type="text" class="form-control" name="name" value="@Model.name" />
+    </div>
+    <button class="btn btn-success">Rolü Güncelle</button>
+</form>
+
